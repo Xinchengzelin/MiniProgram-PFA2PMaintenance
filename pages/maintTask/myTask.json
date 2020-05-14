@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "mp-searchbar": "/components/searchbar/searchbar",
+    "filterwindow": "/components/filterwindow/filterwindow",
+    "itemTask": "/components/itemTask/itemTask"
+  },
+  "navigationBarTitleText":"我的任务单"
+}

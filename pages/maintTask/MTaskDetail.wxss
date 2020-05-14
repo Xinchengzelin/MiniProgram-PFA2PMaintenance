@@ -1,0 +1,49 @@
+/* pages/maintTask/MTaskDetail.wxss */
+@import  '/lib/weui.wxss';
+.page{
+
+  padding:5rpx;
+}
+.picContainer{
+  height:310rpx;
+  display: flex;
+  justify-content: space-around;
+  background-color: #f3f3f3;
+}
+.img-class{
+  width: 300rpx; 
+  height: 300rpx
+}
+.my-cell-height{
+  height:25rpx;
+}
+.button-display{
+  display:flex;
+}
+.text-disp{
+  padding:0 .6em 0 .7em;
+  font-size:17px;
+  color:#576b95;
+  position:relative;
+}
+.mypickerheight{
+  height:50rpx;
+}
+.extClass-filter{
+  height:1rpx;
+  width:1rpx;
+}
+.picker-class{
+  width:33vw;
+  /* height:80rpx;
+  font-size: 38rpx;
+  font-weight: bolder;*/  
+  
+
+}
+.picker-class-button{
+  padding-left: 12vw;
+  width:33vw;
+  text-align: left; 
+  /* padding-bottom: 0rpx; */
+}

@@ -1,0 +1,23 @@
+<!--pages/maintTask/newMT.wxml -->
+<mp-toptips msg="{{errorMsg}}" type="error" show="{{errorMsg}}" delay="1000"></mp-toptips>
+<mp-form id="form" ext-class="newMT" rules="{{rules}}" models="{{formData}}">
+  <picker range="{{workSections}}" class="picker-view" bindchange="bindPickerChange" value="workSections[index]" name="section" >
+    <input style="text-align: center" class="picker" placeholder="﹀点击选取问题所在工段﹀" placeholder-class="placeholder-class"value="{{workSections[index]}}" disabled='disabled'></input>
+  </picker>
+  <mp-cells title="问题标题：">
+    <mp-cell prop="title" ext-class="mycell-title-height">
+      <input maxlength="20" placeholder="标题不多于20个字" value="{{title}}" name="title" bindinput="bindTitleInput" />
+    </mp-cell>
+  </mp-cells>
+  <mp-cells title="问题详述：">
+    <mp-cell prop="detail" ext-class="mycell-detail-height">
+      <textarea class="mycell-detail-height" placeholder="详细描述设备位置、问题以及希望达到的维修效果" value="{{detail}}" name="detail" bindinput="bindDetailInput" />
+    </mp-cell>
+  </mp-cells>
+  <view class="separator"></view>
+  <!--<mp-cells title="图片上传">-->
+  <mp-uploader ext-class="upload-style" title="图片上传" tips="" bindfail="uploadError" bindsuccess="uploadSuccess" select="{{selectFile}}" upload="{{uplaodFile}}" files="{{files}}" max-count="2" delete="false"></mp-uploader>
+  <!--</mp-cells>-->
+  <button class="weui-btn button-top" type="primary" bindtap="formSubmit" loading="{{loading}}" formType="submit">提交</button>
+  <!-- <view class="create-history">历史报修单创建>></view> -->
+</mp-form>

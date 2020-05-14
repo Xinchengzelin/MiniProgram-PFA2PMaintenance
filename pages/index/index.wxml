@@ -1,0 +1,17 @@
+<!--index.wxml-->
+<view class="container">
+    <mp-gallery show="{{show}}" bindchange="change" showDelete="{{false}}" img-urls="{{imgUrls}}" current="0"></mp-gallery>
+
+    <!--
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取授权 </button> 
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>    
+  </view>
+    -->
+  <button open-type="getUserInfo" size="mini" bindtap="naviToMaintTask" class="bottom-button">进入系统</button>
+  <view>{{console.log(wx.getSystemInfoSync())}}</view>
+
+</view>

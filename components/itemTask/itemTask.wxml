@@ -1,0 +1,21 @@
+<view class="MTaskItem">
+  <view class="MTaskItemLeft">
+    <image lazy-load="true" wx:if="{{itemdata.imagList[0]}}" class="iMTaskItemImage" src="{{itemdata.imagList[0]}}" mode="aspectFill"></image>
+  </view>
+  <view class="MTaskItemRight">
+    <view class="itemRightTop">
+      <view class="iMTaskItemTitle iMTaskItem-borderStyle">{{itemdata.title}}</view>
+      <view class="itemStatus {{itemdata.status=='Open'?'itemRed':itemdata.status=='Pending'?'itemYellow':itemdata.status=='Closed'?'itemGreen':''}}"></view>
+    </view>
+    <view class="innerMTaskItemRight iMTaskItem-borderStyle">
+      <view class="iMTaskItemID">ID:{{itemdata.taskid}} </view>
+      <view class="iMTaskItemWorkSection">{{itemdata.section}} </view>
+    </view>
+    <view class="iMTaskItemApplyDate iMTaskItem-borderStyle">报修时间：{{itemdata.applyDateTime}} </view>
+    <view class="innerMTaskItemRight iMTaskItem-borderStyle">
+      <view class="iMTaskItemThird">{{itemdata.responsible}} </view>
+      <view class="iMTaskItemThird">{{itemdata.transferredPerson}} </view>
+      <view class="iMTaskItemThird">{{itemdata.closedPerson}}</view>
+    </view>
+  </view>
+</view>

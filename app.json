@@ -1,0 +1,45 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/register/register",
+    "pages/maintTask/maintTask",
+    
+    "pages/logs/logs",
+    "pages/maintTask/newMT",
+    "pages/maintTask/myTask",
+    "pages/maintTask/MTaskSum",
+    "pages/maintTask/MTaskDetail",
+    "pages/maintenance/maintenance",
+    "pages/inspection/inspection",
+    "pages/equipmentResume/equipmentResume",
+    "pages/equipmentResume/paintRobot/paintRobot"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "PFA2P维保系统",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/maintTask/maintTask",
+        "iconPath": "image/task.png",
+        "selectedIconPath": "image/task_HL.png",
+        "text": "任务单"
+      },
+
+      {
+        "pagePath": "pages/equipmentResume/equipmentResume",
+        "iconPath": "image/resume.png",
+        "selectedIconPath": "image/resume_HL.png",
+        "text": "履历"
+      }
+    ]
+  },
+  "usingComponents": {},
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}
+
+

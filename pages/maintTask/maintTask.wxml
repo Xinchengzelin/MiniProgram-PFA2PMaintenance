@@ -1,0 +1,90 @@
+<!--pages/maintTask/maintTask.wxml-->
+<view class="page">
+  <view class="page-head" hidden="true">
+    <image class="logo-img" mode="aspectFit" src="/image/svw_logo.png"></image>
+  </view>
+ 
+  <view class="icon_item">
+    <navigator class='item' data-type="0" url="/pages/maintTask/newMT">
+      <image class="icon" src="/image/new.png" background-size="cover"></image>
+      <view class='text'>{{maintTaskNavi[0]}}</view>
+    </navigator>
+    <navigator class='item' data-type="1" url="/pages/maintTask/MTaskSum">
+      <image class="icon" src="/image/list.png" background-size="cover"></image>
+      <view class='text'>{{maintTaskNavi[1]}}</view>
+    </navigator>
+    <navigator class='item' data-type="2" url="/pages/maintTask/myTask">
+      <image class="icon" src="/image/my.png" background-size="cover"></image>
+      <view class='text'>{{maintTaskNavi[2]}}</view>
+    </navigator>
+  </view>
+
+  <view class="tabs-container">
+    <mp-tabs tabs="{{tabs}}" activeTab="{{activeTab}}" tab-class="tab-class" swiperClass="weui-tabs-swiper" bindtabclick="onTabCLick" bindchange="onChange" activeClass="tab-bar-title__selected">
+      <block>
+        <view class="tab-content" slot="tab-content-0">
+          <scroll-view scroll-y="true" class="scroll-class">
+            <mp-cells>
+              <block wx:for="{{taskList}}" wx:for-item="item">
+                <mp-cell prop="taskItem" hover link url="/pages/maintTask/MTaskDetail?id={{item._id}}" title="{{item.title}}" footer="去接单" ext-class="my-cell-height">
+                </mp-cell>
+              </block>
+            </mp-cells>
+          </scroll-view>
+        </view>
+        <view class="tab-content" slot="tab-content-1">
+        <scroll-view scroll-y="true" class="scroll-class">
+            <mp-cells>
+              <block wx:for="{{overtimeList}}" wx:for-item="item">
+                <mp-cell prop="taskItem" hover link url="/pages/maintTask/MTaskDetail?id={{item._id}}" title="{{item.title}}" footer="去闭环" ext-class="my-cell-height">
+                <!--<image slot="icon" src="{{icon}}" class="icon-class"></image> -->
+                </mp-cell>             
+              </block>
+            </mp-cells>
+          </scroll-view>
+        </view>
+        <view class="tab-content" slot="tab-content-2">
+          <swiper class="sumSta" autoplay="true" duration="1000" bindchange="listenSwiper">
+            <swiper-item>
+              <view class="swiperItem">
+                <view class="swiperItemPost">
+                  <view class="swiperItemPostTop">{{sta.closeCounter+sta.PendingCounter+sta.openCounter}}</view>
+                  <view class="swiperItemPostBottom">总数</view>
+                </view>
+                <view class="swiperItemPost">
+                  <view class="swiperItemPostTop">{{sta.closeCounter}}</view>
+                  <view class="swiperItemPostBottom">完成数</view>
+                </view>
+                <view class="swiperItemPost">
+                  <view class="swiperItemPostTop">{{sta.closeRate}}%</view>
+                  <view class="swiperItemPostBottom">完成率</view>
+                </view>
+              </view>
+            </swiper-item>
+            <swiper-item>
+              <view class="swiperItem">
+                <view class="swiperItemPost">
+                  <view class="swiperItemPostTop">{{sta.PendingCounter+sta.openCounter}}</view>
+                  <view class="swiperItemPostBottom">未完成</view>
+                </view>
+                <view class="swiperItemPost">
+                  <view class="swiperItemPostTop">{{sta.PendingCounter}}</view>
+                  <view class="swiperItemPostBottom">进行中</view>
+                </view>
+                <view class="swiperItemPost">
+                  <view class="swiperItemPostTop">{{sta.openCounter}}</view>
+                  <view class="swiperItemPostBottom">未开始</view>
+                </view>
+              </view>
+            </swiper-item>
+          </swiper>
+        </view>
+
+
+
+
+
+      </block>
+    </mp-tabs>
+  </view>
+</view>

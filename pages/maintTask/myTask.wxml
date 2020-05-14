@@ -1,0 +1,29 @@
+<!--pages/maintTask/myTask.wxml-->
+<view class="MTaskSum">
+  <view class="page__bd search-filter">
+    <mp-searchbar ext-class="ext-search-bar" bindconfirmResult="confirmResult" bindcancel="bindcancel" bindclear="bindclear"></mp-searchbar>
+
+    <view wx:if="{{!ascendOn}}" class="filter" bindtap="bindSort">
+      <view>升序</view>
+      <image src="/image/descend.png" class="pic"></image>
+    </view>
+    <view wx:if="{{ascendOn}}" class="filter" bindtap="bindSort">
+      <view>降序</view>
+      <image src="/image/ascend.png" class="pic"></image>
+    </view>
+
+    <filterwindow filterOn="{{filterOpen}}" bindcancel="filterReset" bindsubmit="filtersubmit" searchList="{{searchList}}"></filterwindow>
+  </view>
+
+  <scroll-view class="MTask" scroll-y="true" refresher-enabled="true" refresher-triggered="{{isTrigger}}" bindrefresherrefresh="bindrefresherrefresh" bindscrolltolower="bindscrolltolower">
+    <navigator wx:for="{{MTaskList}}" wx:for-index="idx" wx:for-item="item" wx:key="id" open-type="navigate" url="/pages/maintTask/MTaskDetail?id={{item._id}}" open-type="navigate" bindtap="naviBindtap">
+      <itemTask itemdata="{{item}}"></itemTask>
+    </navigator>
+  </scroll-view>
+</view>
+
+<!--筛选按钮-->
+<!-- <view class="filter" bindtap="bindtapFilter">
+      <view class="filter-text">筛选</view>
+      <image src="{{filter_HL?'/image/filter_HL.png':'/image/filter.png'}}" class="pic"></image>
+    </view> -->

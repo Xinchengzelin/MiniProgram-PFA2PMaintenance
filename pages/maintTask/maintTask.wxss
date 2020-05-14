@@ -1,0 +1,132 @@
+/* pages/maintTask/maintTask.wxss */
+@import  '/lib/weui.wxss';
+.page {  
+  margin-left: 10rpx;  
+  margin-right: 10rpx; 
+  background-color: #f3f3f3;
+  width:100%;
+  height:100%;
+}  
+.page-head{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-left: 0px;
+  width:100vw;
+  position:fixed;
+  left:-215rpx;
+  top:5rpx;
+}
+.logo-img{
+  height: 100rpx
+}
+.icon_item {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 120rpx;
+  padding: 20rpx;
+ 
+}
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 150rpx;
+  text-align: center;
+  font-size:25rpx;
+}
+.icon {
+  width: 80rpx;
+  height: 80rpx;
+  text-align: center;
+}
+
+
+.swiper-tab {  
+  display: flex;  
+  flex-direction: row; 
+  justify-content: space-around;
+  height:80rpx; 
+  line-height: 80rpx;  
+ 
+  
+}  
+.tab-item {  
+  width: 33.3%;  
+  text-align: center;  
+  background:#ccc;
+}
+
+.on {
+  border-bottom: 5rpx solid rgb(31, 247, 3) ;
+  text-align: center;
+  background:white;  
+  width: 33.3%;  
+}  
+.my-cell-height{
+  height:10rpx;
+  font-size: 28rpx;
+}
+.my-cells{
+  margin-top:70rpx;
+}
+.icon-class{
+  margin-right: 16rpx;
+  vertical-align: middle;
+  width:20rpx;
+  height: 20rpx;
+}
+
+
+.tabs-container{
+    height: 700rpx;
+    background: #f3f3f3;
+    margin-top: 80rpx;
+    justify-content: center;
+}
+.tab-class{
+  width:33vw;
+  text-align: center;
+  background:#f3f3f3; 
+  
+}
+.scroll-class{
+  height:595rpx
+}
+.weui-tabs-swiper {/*tabs内容区域样式*/
+    width: 100%;
+    height: 670rpx;   
+}
+.tab-bar-title__selected {    
+    font-weight: bold;
+    background:#ffffff; 
+}
+
+/*统计功能*/
+.sumSta{
+  display: flex;
+  height: 10vh;
+}
+.swiperItem{
+  background: rgb(245, 241, 241);
+  width:100vw;
+  height: 10vh;
+  display: flex;
+  border-bottom-style:dotted;
+  justify-content: space-around;
+}
+.swiperItemPost{
+  display: flex;
+  flex-direction: column;
+  /*;*/
+  width:30%;
+  text-align: center;
+}
+.swiperItemPostTop{
+  font-size:60rpx;
+  height:70rpx;
+}
+.swiperItemPostBottom{
+  height:50rpx;
+  font-size:30rpx;
+}

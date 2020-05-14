@@ -1,0 +1,13 @@
+{
+  "usingComponents": {
+    "mp-cell": "/components/cell/cell",
+    "mp-cells": "/components/cells/cells",
+    "mp-searchbar": "/components/searchbar/searchbar",
+    "mp-halfScreenDialog": "/components/half-screen-dialog/half-screen-dialog",
+    "dropdownmenu": "/components/dropdownmenu/dropdownmenu",
+    "itemTask": "/components/itemTask/itemTask"
+  },
+
+  "backgroundColor": "#ffffff",
+  "navigationBarTitleText": "问题单总览"
+}

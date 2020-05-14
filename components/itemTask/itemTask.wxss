@@ -1,0 +1,91 @@
+/* components/itemTask/itemTask.wxss */
+.MTaskItem {
+  display: flex;
+  flex-direction: row;
+  align-content: flex-start;
+  align-items: center;
+  /*justify-content: center;*/
+  height: 270rpx;
+  margin-top:5rpx;
+  /*background-color: rgb(51, 128, 0);*/
+  border: 1px solid #c9c6c6;
+  border-radius: 10rpx;
+}
+.MTaskItemleft{
+  display: flex;
+  width:38%;
+}
+.MTaskItemRight{
+  display: flex;
+  flex-direction: column;
+  height:100%;
+  width:62%;
+  flex-wrap:wrap;
+  padding-left:10rpx;
+  padding-right:10rpx;
+  padding-top:20rpx;
+}
+.innerMTaskItemRight{
+  display: flex;
+  flex-direction: row;
+  height:50rpx;
+  justify-content: space-between;
+
+}
+.itemRightTop{
+  display: flex;
+  flex-direction: row;
+}
+.iMTaskItemImage{
+  height: 240rpx;
+  width:  320rpx;
+  border-radius: 10rpx;
+}
+.iMTaskItemTitle{
+  width:90%;
+  height:90rpx;
+  padding-bottom: 10rpx;
+
+}
+.iMTaskItemApplyDate{
+  width:100%;
+  font-size: 28rpx;
+}
+.iMTaskItemID{
+  width:50%;
+  font-size: 28rpx;
+}
+.iMTaskItemWorkSection{
+  width:45%;
+  font-size: 28rpx;
+}
+.iMTaskItemThird{
+  width:33.3%;
+  font-size: 28rpx;
+}
+.itemStatus{
+  width:40rpx;
+  height:40rpx;
+  border-radius: 20rpx;
+  border: 1px solid #c9c6c6 ;
+}
+.itemRed{
+  background-color: OrangeRed;
+  border: 1px solid OrangeRed ;
+  text-align: center;
+}
+.itemYellow{
+  background-color: Gold;
+  border: 1px solid Gold ;
+  text-align: center;
+}
+.itemGreen{
+  background-color: YellowGreen;
+  border: 1px solid YellowGreen ;
+  text-align: center;
+}
+.iMTaskItem-borderStyle{
+  border-bottom-style:solid;
+  border-bottom-width:1px;
+  border-bottom-color: #f6f6f6;
+}

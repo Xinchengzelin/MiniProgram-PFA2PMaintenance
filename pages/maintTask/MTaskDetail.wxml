@@ -1,0 +1,145 @@
+<!--pages/maintTask/MTaskDetail.wxml-->
+<mp-toptips msg="{{error}}" type="error" show="{{error}}"></mp-toptips>
+
+<view class="page">
+  <view class="page__bd">
+    <mp-form id="form" rules="{{rules}}" models="{{formData}}">
+
+      <mp-cells title="报修单信息">
+        <mp-cell prop="taskid" title="报修单ID" ext-class="my-cell-height">
+          <view class="text-disp">{{detailData.taskid}}</view>
+        </mp-cell>
+        <mp-cell prop="section" title="工段" ext-class="my-cell-height">
+          <view class="text-disp">{{detailData.section}}</view>
+        </mp-cell>
+        <mp-cell prop="title" title="问题标题">
+          <view class="text-disp">{{detailData.title}}</view>
+        </mp-cell>
+        <mp-cell prop="description" title="问题详述">
+          <view class="text-disp">{{detailData.discription}}</view>
+        </mp-cell>
+
+        <block wx:if="{{detailData.imagList.length}}">
+          <view class="picContainer">
+            <image wx:if="{{detailData.imagList[0]}}" class="img-class" mode="aspectFit" src="{{detailData.imagList[0]}}"></image>
+            <view wx:if="{{detailData.imagList.length===2}}">
+              <image wx:if="{{detailData.imagList[1]}}" class="img-class" mode="aspectFit" src="{{detailData.imagList[1]}}"></image>
+            </view>
+          </view>
+        </block>
+
+      </mp-cells>
+
+      <mp-cells title="报修人信息">
+        <mp-cell prop="applier" title="报修人" ext-class=" my-cell-height">
+          <view class="text-disp">{{detailData.applier}}</view>
+        </mp-cell>
+        <mp-cell prop="applyDateTime" title="报修时间" ext-class=" my-cell-height">
+          <view class="text-disp">{{detailData.applyDateTime}}</view>
+        </mp-cell>
+      </mp-cells>
+
+      <mp-cells wx:if="{{proc>=1}}" title="接单信息">
+
+        <mp-cell prop="responsible" title="接单人" ext-class=" my-cell-height">
+          <view class="text-disp">{{detailData.responsible}}</view>
+        </mp-cell>
+        <mp-cell prop="acceptDateTime" title="接单时间" ext-class=" my-cell-height">
+          <view class="text-disp">{{detailData.acceptDateTime}}</view>
+        </mp-cell>
+      </mp-cells>
+      <view wx:if="{{proc<1 && acceptBtnShow}}">
+        <button type="primary" bindtap="responsibleTask">接单</button>
+      </view>
+
+
+      <mp-cells wx:if="{{proc>=2}}" title="转单信息">
+        <mp-cell prop="transferredPerson" title="转给人" ext-class=" my-cell-height">
+          <view class="text-disp">{{detailData.transferredPerson}}</view>
+        </mp-cell>
+        <mp-cell prop="transferDateTime" title="转单时间" ext-class=" my-cell-height">
+          <view class="text-disp">{{detailData.transferDateTime}}</view>
+        </mp-cell>
+      </mp-cells>
+
+      <mp-cells wx:if="{{proc>=1}}" title="闭环过程信息">
+        <mp-cell wx:if="{{proc<=3}}" prop="currentStatus" title="更新过程" ext-class="my-cell-height">
+          <input bindinput="formInputStatusChange" disabled="{{proc<1 || proc>3}}" value="{{detailData.currentStatus}}" data-field="currentStatus" class="weui-input" placeholder="输入等待备件及临时措施等" />
+        </mp-cell>
+        <mp-cell wx:if="{{proc>=4}}" prop="currentStatus" title="更新过程">
+          <view class="text-disp">{{detailData.currentStatus}}</view>
+        </mp-cell>
+        <mp-cell wx:if="{{proc>=3}}" prop="updatedTime" title="更新时间" ext-class=" my-cell-height">
+          <view class="text-disp">{{detailData.updatedTime}}</view>
+        </mp-cell>
+        <mp-cell wx:if="{{proc<=3}}" prop="expiredDateTime" title="预计完成日期" ext-class="my-cell-height">
+          <view class="section">
+            <picker mode="date" disabled="{{proc<1 || proc>3}}" value="{{detailData.expiredDateTime}}" start="2019-01-01" end="2050-01-01" bindchange="bindDateChange">
+              <view class="picker mypickerheight">
+                {{detailData.expiredDateTime}}
+              </view>
+            </picker>
+          </view>
+        </mp-cell>
+        <mp-cell wx:if="{{proc>=4}}" prop="expiredDateTime" title="预计完成日期">
+          <view class="text-disp">{{detailData.expiredDateTime}}</view>
+        </mp-cell>
+      </mp-cells>
+      <view class="button-display" wx:if="{{proc>=1 && proc<4 && transferBtnShow}}">
+        
+           <picker  class="picker-class" mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange"  range="{{multiArray}}" value="{{multiIndex}}">
+            <button class="weui-btn picker-class-button"  >转单</button>
+            </picker>
+          
+            <!-- <button class="weui-btn" bindtap="bindTransferTask">转单</button> -->
+
+        <button type="primary" bindtap="updateForm">更新过程</button>
+        <button class="weui-btn" bindtap="bindToClose">去闭环</button>
+      </view>
+
+      <mp-cells wx:if="{{proc>=4}}" title="问题单闭环信息">
+        <block wx:if="{{proc===5}}">
+          <mp-cell prop="closedPerson" title="闭环人" ext-class="my-cell-height">
+            <view class="text-disp">{{detailData.closedPerson}}</view>
+          </mp-cell>
+          <mp-cell prop="closedDateTime" title="闭环时间" ext-class=" my-cell-height">
+            <view class="text-disp">{{detailData.closedDateTime}}</view>
+          </mp-cell>
+        </block>
+
+        <mp-cell wx:if="{{proc===4}}" prop="closedMeasure" title="闭环措施" ext-class="my-cell-height">
+          <input bindinput="formInputChange" disabled="{{proc!=4}}" value="{{detailData.closedMeasure}}" data-field="closedMeasure" class="weui-input" placeholder="请输入闭环措施" />
+        </mp-cell>
+
+        <mp-cell wx:if="{{proc===5}}" prop="closedMeasure" title="闭环措施">
+          <view class="text-disp">{{detailData.closedMeasure}}</view>
+        </mp-cell>
+
+
+        <view wx:if="{{proc===4}}" class="page__bd">
+          <mp-cells>
+            <mp-cell>
+              <mp-uploader title="闭环照片" bindfail="uploadError" bindsuccess="uploadSuccess" select="{{selectFile}}" upload="{{uplaodFile}}" files="{{files}}" max-count="2" delete="true"></mp-uploader>
+            </mp-cell>
+          </mp-cells>
+        </view>
+        <block wx:if="{{proc===5}}">
+          <view class="picContainer">
+            <image wx:if="{{detailData.closedImg[0]}}" class="img-class" mode="aspectFit" src="{{detailData.closedImg[0]}}"></image>
+            <view wx:if="{{detailData.closedImg.length===2}}">
+              <image wx:if="{{detailData.closedImg[1]}}" class="img-class" mode="aspectFit" src="{{detailData.closedImg[1]}}"></image>
+            </view>
+          </view>
+        </block>
+      </mp-cells>
+
+      <view wx:if="{{proc===4 && closedBtnShow}}">
+        <button class="weui-btn" type="primary" bindtap="submitForm" formType="submit">问题单闭环</button>
+        <button bindtap="resetForm" formType="reset">取消</button>
+
+
+      </view>
+    </mp-form>
+
+  </view>
+</view>

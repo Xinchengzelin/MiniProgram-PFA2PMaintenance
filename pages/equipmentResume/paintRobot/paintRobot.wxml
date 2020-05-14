@@ -1,0 +1,50 @@
+<!--pages/equipmentResume/paintRobot/paintRobot.wxml-->
+<view class="container">
+  <view class="search-filter">
+    <mp-searchbar ext-class="ext-search-bar" bindconfirmResult="confirmResult" bindcancel="bindcancel" bindclear="bindclear"></mp-searchbar>
+    <view class="pic-view" bindtap="bindpic">
+      <image mode="aspectFit" class="pic"src="{{showType?'/image/group.png':'/image/aslist.png'}}"></image>
+    </view>
+    <filterwindow extClass="extClass-filter" bindcancel="filterReset" bindsubmit="filtersubmit" searchList="{{searchList}}"></filterwindow>
+  </view>
+
+  <!-- -->
+  <scroll-view class="scroll-class" scroll-y="true" refresher-enabled="true" refresher-triggered="{{isTrigger}}" bindrefresherrefresh="bindrefresherrefresh" bindscrolltolower="bindscrolltolower">
+    <view wx:for="{{resumeList}}" wx:for-index="idx" wx:for-item="item">
+      <view wx:if="{{!showType}}"><!--按每条内容一个框-->
+        <template is="MtaskTemplate" data="{{...item}}" />
+      </view>
+      <view wx:if="{{showType}}"><!--按每个机器人一个框-->
+        <view class="view-text">{{item[0].lineNo}}-{{item[0].coatType}}-{{item[0].robotStation}}-{{item[0].robot}}
+        <view wx:for="{{item}}" wx:for-item="ite" wx:for-index="id">
+          <mp-cells>
+            <mp-cell title="{{id+1}}) {{ite.timeInfo}}" ext-class="ext-mp-cell">
+              <view wx:if="{{ite.faultInfo}}">{{ite.faultInfo}}：{{ite.measurement}}</view>
+              <view wx:if="{{!ite.faultInfo}}">{{ite.measurement}}</view>
+            </mp-cell>
+          </mp-cells>
+        </view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+
+
+</view>
+
+<!--模板定义-->
+<template name="MtaskTemplate">
+  <view class="MTaskItem ">
+    <view class="MTaskItemleft ">
+      <view class="robot-text iMTaskItem-borderStyle ">{{robot}}</view>
+    </view>
+    <view class="MTaskItemRight ">
+      <view class="item-text iMTaskItem-borderStyle ">{{timeInfo}}</view>
+      <view class="item-text-short iMTaskItem-borderStyle ">{{lineNo}}</view>
+      <view class="item-text-short iMTaskItem-borderStyle ">{{coatType}}</view>
+      <view class="item-text-short iMTaskItem-borderStyle ">{{robotStation}}</view>
+      <view wx:if="{{faultInfo}}"class="iMTaskItem-borderStyle ">{{faultInfo}}：{{measurement}}</view>
+      <view wx:if="{{!faultInfo}}"class="iMTaskItem-borderStyle ">{{measurement}}</view>
+    </view>
+  </view>
+</template>

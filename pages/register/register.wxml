@@ -1,0 +1,71 @@
+<!--pages/register/register.wxml-->
+<mp-toptips msg="{{error}}" type="error" show="{{error}}"></mp-toptips>
+
+<mp-form id="form" rules="{{rules}}" models="{{formData}}">
+  <mp-cells title="基本信息">
+    <mp-cell prop="username" title="姓名" ext-class="">
+      <input bindinput="nameInputChange" data-field="username" class="weui-input" placeholder="请输入姓名" />
+    </mp-cell>
+    <mp-cell prop="userno" title="工号" ext-class="">
+      <input bindinput="jobNoInputChange" data-field="userno"  class="weui-input" placeholder="请输入工号或出入证号" />
+    </mp-cell>
+    <mp-cell prop="mobile" title="手机号" ext-class="">
+      <input bindinput="mobileInputChange" data-field="mobile" type="number" class="weui-input" placeholder="请输入手机号" />
+    </mp-cell>
+    <mp-cell prop="useremails" title="邮箱" ext-class="">
+      <input bindinput="emailInputChange" data-field="useremails" class="weui-input" placeholder="优先输入工作邮箱" />
+    </mp-cell>
+    <mp-cell prop="password1" title="密码" ext-class="">
+      <input bindinput="passwordInputChange" password data-field="password1" class="weui-input" placeholder="输入密码" />
+    </mp-cell>
+    <mp-cell prop="password2" title="重复密码" ext-class="">
+      <input bindinput="repasswordInputChange" password data-field="password2" class="weui-input" placeholder="重复输入密码" />
+    </mp-cell>
+    
+    <mp-cell prop="isSVW" title="大众员工" ext-class="">
+      <radio-group class="radio-group" bindchange="radioSvwChange">
+        <radio class="radio" wx:for-items="{{isSVWer}}" wx:key="key" value="{{item.name}}" checked="{{item.checked}}">
+          <text>{{item.name}}</text>
+        </radio>
+      </radio-group>
+    </mp-cell>
+    
+  </mp-cells>
+<!--
+  <view hidden="{{!showJobNo}}">
+    <mp-cells title="员工信息">
+      <mp-cell prop="role" title="岗位" ext-class="">
+        <radio-group class="radio-group Myradio" bindchange="radioRoleChange">
+          <radio class="radio multRadio" wx:for-items="{{roleItems}}" wx:key="value" value="{{item.name}}" checked="{{item.checked}}">
+            <text>{{item.name}}</text>
+          </radio>
+        </radio-group>
+      </mp-cell>
+    </mp-cells>
+  </view>
+  -->
+  <view hidden="{{!showCompany}}">
+    <mp-cells title="公司信息">
+      <mp-cell prop="company" title="公司" ext-class="">
+        <input bindinput="companyInputChange" data-field="company" class="weui-input" placeholder="请输入公司完整名称" />
+      </mp-cell>
+    </mp-cells>
+  </view>
+
+  <checkbox-group prop="isAgree" bindchange="bindAgreeChange">
+    <label class="weui-agree" for="weuiAgree">
+      <view class="weui-agree__text">
+        <checkbox class="weui-agree__checkbox" id="weuiAgree" value="agree" checked="{{isAgree}}" />
+        <view class="weui-agree__checkbox-icon">
+          <icon class="weui-agree__checkbox-icon-check" type="success_no_circle" size="9" wx:if="{{isAgree}}"></icon>
+        </view>
+        阅读并同意
+        <navigator url="" class="weui-agree__link">《相关条款》</navigator>
+      </view>
+    </label>
+  </checkbox-group>
+
+  <button class="weui-btn submit-button" type="primary" bindtap="submitForm" formType="submit">注册</button>
+  <button class="weui-btn weui-btn_default" bindtap="resetForm" formType="reset">取消</button>
+
+</mp-form>

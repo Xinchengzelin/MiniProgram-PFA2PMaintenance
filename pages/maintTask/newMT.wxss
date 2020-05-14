@@ -1,0 +1,69 @@
+/* pages/maintTask/newMT.wxss */
+
+.newMT{
+  display: flex;
+  flex-direction: column;
+  /*justify-content: center;
+  align-content: flex-start;*/
+  padding:10rpx;
+  width: 100vw;
+  height: 1100rpx;
+  margin: 10rpx;
+} 
+
+.create-history{
+  text-decoration-line: underline;
+  text-align:center;
+  margin-top:30rpx;
+}
+.picker-view {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width:100vw;
+  height:70rpx;
+  font-weight:bold;
+  margin-top:30rpx;
+  text-align: center;  
+}
+.pic{
+  width:94vw;
+}
+.picker{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width:80vw;
+  height:70rpx;
+  background:#ccc;
+  border-radius: 15rpx;
+  text-align: left;
+  align:middle;
+  padding:0;
+}
+
+.mycell-title-height{
+  height:20rpx;
+}
+.mycell-detail-height{
+  height:200rpx;
+}
+.upload-style{
+  background-color: #ffffff;
+  padding-left:16px;
+  padding-right:16px; 
+  height:350rpx;
+}
+.separator{
+  height:20rpx
+}
+.button-top{
+  margin-top: 30rpx;
+}
+.placeholder-class{
+    color:red;
+    font-weight:bold;
+    text-align: left;
+    align:middle;
+    padding:0;
+}

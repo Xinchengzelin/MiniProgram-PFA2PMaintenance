@@ -1,0 +1,22 @@
+<!--components/filterwindow/filterwindow.wxml-->
+<!--筛选窗-->
+  <view wx:if="{{buttonShow}}"class="filter {{extClass}}" bindtap="bindtapFilter">
+    <view class="filter-text">筛选</view>
+    <image src="{{filter_HL?'/image/filter_HL.png':'/image/filter.png'}}" class="pic"></image>
+  </view>
+  <view  class="{{filterOn? 'container-search' : 'container-search-disappear'}}">
+    <scroll-view scroll-y="true" class="list">
+      <view class="search-cat" wx:for="{{searchList}}" wx:for-item="p" wx:for-index="pIndex" wx:key="screenKey">
+        <view class="search-title">{{p.screenKey}}</view>
+        <view class="search-items">
+          <view bindtap="_onChange" wx:for="{{p.screenValue}}" wx:for-item="g" data-parent-index="{{ pIndex }}" data-index="{{ index }}" data-item="{{ p }}" class="item {{ g.checked ? 'active' : '' }}" wx:key="*this">
+            {{g.value}}
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+    <view class="search-bottom">
+      <view class="cancel" catchtap="doCancel">取消</view>
+      <view class="confirm" catchtap="doSubmit">确认</view>
+    </view>
+  </view>

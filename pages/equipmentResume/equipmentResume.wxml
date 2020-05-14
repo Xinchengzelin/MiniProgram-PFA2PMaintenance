@@ -1,0 +1,29 @@
+<!--pages/equipmentResume/equipmentResume.wxml-->
+<mp-toptips msg="{{errorMsg}}" type="error" show="{{errorMsg}}" delay="1500"></mp-toptips>
+<view class="icon_item">
+    <navigator class='item'  data-type="0" url="/pages/equipmentResume/paintRobot/paintRobot">
+      <image class="icon" src="/image/robot.png" background-size="cover"></image>
+      <view class='text'>面漆机器人</view>
+
+    </navigator>
+    <mp-cells wx:if="{{allowTCRobot}}" title="面漆机器人履历更新" ext-class="update-resume">
+      <mp-cell title="Line1:" ext-class='uploadTC'>
+        <view class="upload-view">
+          <input placeholder="选择LINE1.xlsm" class="upload-input" disabled="true" value="{{line1Name}}"></input>
+          <button size='mini' bindtap="uploadTC1">上传</button>
+        </view>
+      </mp-cell>
+      <mp-cell title="Line2:" ext-class='uploadTC'>
+        <view class="upload-view">
+          <input placeholder="选择LINE2.xlsm" class="upload-input" disabled="true" value="{{line2Name}}"></input>
+          <button size='mini' bindtap="uploadTC2">上传</button>
+        </view>
+      </mp-cell>
+      <!-- <button type='primary' bindtap="putRobotInfo">上传</button> -->
+      <view style="color:red">{{httpErr}}</view>
+    </mp-cells>
+
+    
+  
+  </view>
+

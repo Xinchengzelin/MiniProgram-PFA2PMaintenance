@@ -1,0 +1,11 @@
+{
+  "usingComponents": {
+    "mp-form": "/components/form/form",
+    "mp-cell": "/components/cell/cell",
+    "mp-cells": "/components/cells/cells",
+    "mp-uploader": "/components/uploader/uploader",
+    "mp-toptips": "/components/toptips/toptips",
+    "filterwindow": "/components/filterwindow/filterwindow"
+  },
+  "navigationBarTitleText": "问题单详情"
+}

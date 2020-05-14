@@ -1,0 +1,14 @@
+/* pages/register/register.wxss */
+@import  '/lib/weui.wxss';
+.Myradio{
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content:flex-start;
+}
+.multRadio{
+  width: 30vw;
+}
+.submit-button{
+  margin-top:50rpx;
+}

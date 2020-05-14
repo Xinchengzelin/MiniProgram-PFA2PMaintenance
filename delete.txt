@@ -1,0 +1,13 @@
+      // {
+      //   "pagePath": "pages/inspection/inspection",
+      //   "iconPath": "image/temp.png",
+      //   "selectedIconPath": "image/temp_HL.png",
+      //   "text": "µãÑ²¼ì"
+      // },
+      // {
+      //   "pagePath": "pages/maintenance/maintenance",
+      //   "iconPath": "image/maintenance.png",
+      //   "selectedIconPath": "image/maintenance_HL.png",
+      //   "text": "±£Ñø"
+      // },
+

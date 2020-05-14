@@ -1,0 +1,49 @@
+/* pages/maintTask/myTask.wxss */
+.MTaskSum{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 1%;
+  background-color: #ffffff;
+}
+.MTask{
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+  justify-content: center;
+  height: 90vh;
+  /*background-color: rgb(199, 241, 134);*/
+  position: sticky;
+  top:20vh;
+  z-index: 1;
+}
+.search-filter{
+  margin-top: 5rpx;
+  height: 9vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.ext-search-bar{
+  width:66vw;
+  height:9vh;
+  position: fixed;
+  z-index: 1000;
+  background-color: #f3f3f3;
+}
+.filter{
+  height:9vh;
+  width:17vw;
+  background-color: #EDEDED;
+  display:flex;
+  flex-direction: row;
+  align-items:center;
+  justify-content: center;
+  font-weight:normal;
+
+}
+.pic{
+  width:30rpx;
+  height:30rpx;
+}

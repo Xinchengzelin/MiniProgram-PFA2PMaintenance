@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "filterwindow": "/components/filterwindow/filterwindow",
+    "mp-searchbar": "/components/searchbar/searchbar",
+    "mp-cell": "/components/cell/cell",
+    "mp-cells": "/components/cells/cells"
+  },
+  "navigationBarTitleText": "底面漆机器人履历"
+}

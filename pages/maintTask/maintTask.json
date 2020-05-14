@@ -1,0 +1,9 @@
+{
+
+  "usingComponents": {
+    "mp-cell": "/components/cell/cell",
+    "mp-cells": "/components/cells/cells",
+    "mp-tabs": "/components/tabs/index"
+  },
+  "backgroundColor":"#f3f3f3"
+}
